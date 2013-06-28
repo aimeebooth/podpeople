@@ -14,9 +14,20 @@ Feature: Scheduling podcasts with nerds
 ```
 
 ## Concerns
+- Network
+- Show
+- Episode
 - Topic
 - Day (optional)
 - Time slot (optional)
 - Host Availability
 - Guests/Co-Hosts Availability
 
+# Relationships
+
+- Network have many shows
+- Shows have many episodes
+- Shows have many hosts
+- Episodes have many topics
+- Episodes have many guests
+- Episodes have one taping (attrs: day, time)

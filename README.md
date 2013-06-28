@@ -1,4 +1,4 @@
-#PodPeople
+#Podpeople
 
 ```cucumber
 Feature: Scheduling podcasts with nerds

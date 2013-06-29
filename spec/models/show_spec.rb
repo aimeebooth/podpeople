@@ -1,9 +1,8 @@
-require 'spec_helper'
+# require 'spec_helper'
+require_relative '../../app/models/show'
 
 describe Show do
-  it "can belong to a network" do
-    internet_podcast = Network.create!
-    hypothetical = Show.create!(network: internet_podcast)
-    hypothetical.reload.network.should == internet_podcast
-  end
+  let(:internet_podcast) { double('Network') }
+  let(:hypothetical) { double('Show', network: network) }
+
 end

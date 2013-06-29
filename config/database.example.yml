@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: podpeople_development
+  pool: 5
+  username: podpeople
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: podpeople_test
+  pool: 5
+  username: podpeople
+  password:

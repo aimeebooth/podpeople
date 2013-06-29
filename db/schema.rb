@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130628202151) do
+ActiveRecord::Schema.define(version: 20130629202438) do
+
+  create_table "episodes", force: true do |t|
+    t.text     "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "networks", force: true do |t|
     t.text     "name"

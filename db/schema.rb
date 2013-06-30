@@ -11,11 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130629202438) do
+ActiveRecord::Schema.define(version: 20130630013335) do
 
   create_table "episodes", force: true do |t|
     t.text     "title"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "show_id"
+  end
+
+  create_table "guests", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "episode_id"
+  end
+
+  create_table "hosts", force: true do |t|
+    t.text     "name"
+    t.integer  "show_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +48,22 @@ ActiveRecord::Schema.define(version: 20130629202438) do
     t.integer  "network_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tapings", force: true do |t|
+    t.date     "date"
+    t.text     "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "episode_id"
+  end
+
+  create_table "topics", force: true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "episode_id"
   end
 
 end

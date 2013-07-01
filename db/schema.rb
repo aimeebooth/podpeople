@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630013335) do
+ActiveRecord::Schema.define(version: 20130630013127) do
 
   create_table "episodes", force: true do |t|
     t.text     "title"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20130630013335) do
     t.text     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "episode_id"
   end
 
   create_table "topics", force: true do |t|

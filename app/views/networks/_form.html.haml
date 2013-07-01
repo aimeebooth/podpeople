@@ -1,0 +1,7 @@
+= form_for :network, url: networks_path, method: :post do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  
+  %p
+    = f.submit

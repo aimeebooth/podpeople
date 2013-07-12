@@ -22,6 +22,10 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'fuubar'
+  gem 'pry'
+  gem 'pry-debugger'
+  gem 'pry-rails'
+  gem 'pry-remote'
 end
 
 # Use ActiveModel has_secure_password

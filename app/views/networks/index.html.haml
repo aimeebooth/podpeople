@@ -3,11 +3,12 @@
 %table
   %tr
     %th Name
-    %th
+    %th Shows
     %th
   - @networks.each do |n|
     %tr
       %td= link_to n.name, network_path(n)
+      %td= n.shows.count
       %td= link_to 'Edit', edit_network_path(n)
       %td= link_to "Delete", network_path(n), method: :delete, confirm: "Are you sure you want to ba-lete this?"
 

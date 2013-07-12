@@ -1,3 +1,5 @@
 Podpeople::Application.routes.draw do
-  resources :networks
+  resources :networks do
+    resources :shows
+  end
 end

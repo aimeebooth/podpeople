@@ -9,6 +9,16 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 
+# memcachier & dalli are both used to cache precompiled assets
+# when deploying to production (Heroku in this instance)
+# see: http://blog.alexmaccaw.com/faster-deploys
+gem 'memcachier'
+gem 'dalli'
+
+# see https://devcenter.heroku.com/articles/rails-integration-gems
+# required for Rails 4 logs to be visible on Heroku
+gem 'rails_12factor'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

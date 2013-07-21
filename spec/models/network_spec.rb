@@ -1,11 +1,14 @@
 require "spec_helper"
 
 describe Network do
-  it "can have shows" do
+  before do
     network = Network.create!
     hypothetical = Show.create!
     network.shows << hypothetical
     network.save!
-    network.reload.shows.should include(hypothetical)
+  end
+  
+  it "can have shows" do
+    expect(network.reload.shows).to include(hypothetical)
   end
 end

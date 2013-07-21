@@ -1,6 +1,7 @@
-%h2= "Editing #{@network.name}"
+%h2= "Editing #{network.name}"
 
-= render partial: 'form'
+%p pssst
+= render partial: 'form', locals: { network: network }
 
-%p= link_to 'Add Show', new_network_show_path(@network)
-%p= link_to 'Back', network_path(@network)
+%p= link_to 'Add Show', new_network_show_path(network)
+%p= link_to 'Back', network_path(network)

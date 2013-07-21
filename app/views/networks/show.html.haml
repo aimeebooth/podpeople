@@ -1,16 +1,18 @@
-%h2="#{@network.name}"
+%h2="#{network.name}"
 
 %table
   %tr
     %th Name
+    %th Description
     %th
     %th
     %th
   %tr
-    %td= "#{@network.name}"
-    %td= link_to 'View Shows', network_shows_path(@network)
-    %td= link_to 'Edit', edit_network_path(@network)
-    %td= link_to 'Delete', network_path(@network), method: :delete, confirm: "Are you sure you want to ba-lete this? Srsly, it will delete all of the things in this network."
+    %td= network.name
+    %td= network.description
+    %td= link_to 'View Shows', network_shows_path(network)
+    %td= link_to 'Edit', edit_network_path(network)
+    %td= link_to 'Delete', network_path(network), method: :delete, confirm: "Are you sure you want to ba-lete this? Srsly, it will delete all of the things in this network."
 
 
 %p= link_to 'Back', networks_path

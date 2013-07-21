@@ -4,12 +4,14 @@
   %tr
     %th Name
     %th Shows
+    %th Descriptions
     %th
-  - @networks.each do |n|
+  - networks.each do |network|
     %tr
-      %td= link_to n.name, network_path(n)
-      %td= n.shows.count
-      %td= link_to 'Edit', edit_network_path(n)
-      %td= link_to "Delete", network_path(n), method: :delete, confirm: "Are you sure you want to ba-lete this?"
+      %td= link_to network.name, network_path(network)
+      %td= network.description
+      %td= network.shows.count
+      %td= link_to 'Edit', edit_network_path(network)
+      %td= link_to "Delete", network_path(network), method: :delete, confirm: "Are you sure you want to ba-lete this?"
 
 %p= link_to 'Add Network', new_network_path

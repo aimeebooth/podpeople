@@ -1,0 +1,5 @@
+%h2 Add Host
+
+= render 'form', show: show, host: host
+
+%p= link_to "Back to #{show.network.name}", network_path(show.network)

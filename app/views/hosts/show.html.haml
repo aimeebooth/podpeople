@@ -1,0 +1,6 @@
+%h2 #{host.name}
+    
+%p= link_to 'Edit', edit_show_host_path(host.show, host)
+%p= link_to 'Delete', show_host_path(host.show, host), method: :delete, confirm: "Are you sure you want to ba-lete this?"
+
+%p= link_to "Back to #{host.show.name}", show_path(host.show)

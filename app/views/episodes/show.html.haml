@@ -1,0 +1,20 @@
+%h2="Showing #{@show.name}"
+
+%p#notice= notice
+
+%table
+  %tr
+    %th Network
+    %th Name
+    %th Description
+    %th 
+    %th
+
+  %tr
+    %td="#{@network.name}"
+    %td="#{@show.name}"
+    %td="#{@show.description}"
+    %td= link_to 'Edit', edit_network_show_path(@network, @show)
+    %td= link_to 'Delete', network_show_path(@network, @show), method: :delete, confirm: "Are you sure you want to ba-lete this?"
+
+= link_to 'Back', network_shows_path(@network)

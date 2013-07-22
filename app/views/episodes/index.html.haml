@@ -1,0 +1,21 @@
+%h1 Listing shows
+
+- if @shows.any?
+  %table
+    %tr
+      %th Name
+      %th Description
+      %th
+      %th
+
+    - @shows.each do |show|
+      %tr
+        %td= link_to "#{show.name}", network_show_path(@network, show)
+        %td="#{show.description}"
+        %td= link_to 'Edit', edit_network_show_path(@network, show)
+        %td= link_to 'Destroy', network_show_path(@network, show), :method => :delete, :data => { :confirm => 'Are you sure you want to ba-lete this?' }
+- else
+  %p You don't got no shows! 
+
+%p= link_to 'Add a Show', new_network_show_path(@network)
+%p= link_to 'Back', network_path(@network)

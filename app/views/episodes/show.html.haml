@@ -2,6 +2,12 @@
 
 %h3 Description
 %p= episode.description
+
+%h3 Topics
+%p= link_to 'Add Topic', new_episode_topic_path(episode)
+%ul
+  - episode.topics.each do |topic|
+    %li= link_to topic.name, [topic.episode, topic]
     
 %h3 Guests
 %p= link_to 'Add Guest', new_episode_guest_path(episode)

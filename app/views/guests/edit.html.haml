@@ -1,0 +1,5 @@
+%h1 Editing guest
+
+= render 'form', episode: episode, guest: guest
+
+%p= link_to "Back to #{episode.title}", show_episode_path(episode.show, episode)

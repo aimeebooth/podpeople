@@ -8,5 +8,9 @@ Podpeople::Application.routes.draw do
     resources :episodes
   end
 
+  resources :episodes do
+    resources :guests
+  end
+
   root to: "networks#index"
 end

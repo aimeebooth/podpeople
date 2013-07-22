@@ -4,6 +4,10 @@
 %p= episode.description
     
 %h3 Guests
+%p= link_to 'Add Guest', new_episode_guest_path(episode)
+%ul
+  - episode.guests.each do |guest|
+    %li= link_to guest.name, [guest.episode, guest]
 
 %p= link_to 'Edit', edit_show_episode_path(episode.show, episode)
 %p= link_to 'Delete', [episode.show, episode], method: :delete, confirm: "Are you sure you want to ba-lete this?"

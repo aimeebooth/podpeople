@@ -1,0 +1,6 @@
+%h2 #{guest.name}
+    
+%p= link_to 'Edit', edit_episode_guest_path(guest.episode, guest)
+%p= link_to 'Delete', episode_guest_path(guest.episode, guest), method: :delete, confirm: "Are you sure you want to ba-lete this?"
+
+%p= link_to "Back to #{guest.episode.title}", show_episode_path(guest.episode.show, guest.episode)

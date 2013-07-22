@@ -1,0 +1,13 @@
+%h2 Guests Index
+
+%table
+  %tr
+    %th Name
+    %th
+  - guests.each do |guest|
+    %tr
+      %td= link_to guest.name, [guest.episode, guest]
+      %td= link_to 'Edit', edit_episode_guest_path(guest.episode, guest)
+      %td= link_to "Delete", [guest.episode, guest], method: :delete, confirm: "Are you sure you want to ba-lete this?"
+
+%p= link_to 'Add Host', new_episode_guest_path(episode)

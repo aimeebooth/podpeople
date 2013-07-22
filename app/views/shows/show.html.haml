@@ -9,12 +9,17 @@
   - show.hosts.each do |host|
     %li= link_to host.name, [host.show, host]
 
-
 %h3 Episodes
 %p= link_to 'Add Episode', new_show_episode_path(show)
 %ul
   - show.episodes.each do |episode|
     %li= link_to episode.title, [episode.show, episode]
+
+%h3 Guests
+Here's a list of the guests we've had on the show so far:
+%ul
+  - show.guests.each do |guest|
+    %li= link_to guest.name, [guest.episode, guest]
 
 %p= link_to 'Edit', edit_network_show_path(show.network, show)
 %p= link_to 'Delete', network_show_path(show.network, show), method: :delete, confirm: "Are you sure you want to ba-lete this?"

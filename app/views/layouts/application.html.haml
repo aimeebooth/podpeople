@@ -6,6 +6,9 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
+    %header
+      %h1= link_to "Podpeople", root_path
+
     .flashes
       = flash[:notice]
       = flash[:warning]

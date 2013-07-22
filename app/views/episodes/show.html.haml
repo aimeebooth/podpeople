@@ -1,5 +1,8 @@
 %h2 #{episode.title}
 
+%h3 Taping
+%p= episode.taping.try(:date) || link_to("Set a taping date", new_episode_taping_path(episode))
+
 %h3 Description
 %p= episode.description
 

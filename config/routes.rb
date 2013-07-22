@@ -11,6 +11,7 @@ Podpeople::Application.routes.draw do
   resources :episodes do
     resources :guests
     resources :topics
+    resources :tapings
   end
 
   root to: "networks#index"

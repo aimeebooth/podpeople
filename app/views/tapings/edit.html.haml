@@ -1,0 +1,5 @@
+%h1 Editing taping
+
+= render 'form', episode: episode, taping: taping
+
+%p= link_to "Back to #{episode.title}", show_episode_path(episode.show, episode)

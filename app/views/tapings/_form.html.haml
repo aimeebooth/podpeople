@@ -1,0 +1,17 @@
+= form_for [episode, taping] do |f|
+  - if taping.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(taping.errors.count, "error")} prohibited this taping from being saved:"
+      %ul
+        - taping.errors.full_messages.each do |msg|
+          %li= msg
+          
+  %p
+    = f.label :date
+    = f.date_field :date
+
+  %p
+    = f.label :time
+    = f.text_field :time
+  %p
+    = f.submit

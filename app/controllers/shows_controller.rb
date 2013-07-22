@@ -1,59 +1,59 @@
 class ShowsController < ApplicationController
-  before_action :set_show, only: [:show, :edit, :update, :destroy]
-  before_action :set_network, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-
   def index
-    @shows = Show.all
+    render :index, locals: { network: find_network, shows: find_network.shows }
   end
 
   def show
+    render :show, locals: { show: find_show }
   end
 
   def new
-    @show = Show.new
+    render :new, locals: { network: find_network, show: Show.new }
   end
 
   def edit
+    render :edit, locals: { network: find_show.network, show: find_show }
   end
 
   def create
-    @show = @network.shows.build(show_params)
+    network = find_network
+    show = network.shows.build(show_params)
 
-    respond_to do |format|
-      if @show.save
-        format.html { redirect_to network_shows_path(@network), notice: 'Show was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @show }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @show.errors, status: :unprocessable_entity }
-      end
+    if show.save
+      flash[:notice] = 'Show was successfully created.'
+      redirect_to network_shows_path(network)
+    else
+      render :new, locals: { network: find_network, show: show }
     end
   end
 
   def update
-    respond_to do |format|
-      if @show.update(show_params)
-        format.html { redirect_to @show, notice: 'Show was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @show.errors, status: :unprocessable_entity }
-      end
+    network = find_network
+    show = find_show
+
+    if show.update(show_params)
+      flash[:notice] = 'Show was successfully updated.'
+      redirect_to [network, show]
+    else
+      render :edit , locals: { show: show }
     end
   end
 
   def destroy
-    @show.destroy
-    respond_to do |format|
-      format.html { redirect_to network_shows_url(@network), notice: 'Show was successfully destroyed.' }
-      format.json { head :no_content }
+    network = find_network
+    show = find_show
+
+    if show.destroy
+      flash[:notice] = 'Show was successfully destroyed.'
+      redirect_to network_shows_url(network)
+    else
+      render :show, locals: { network: network, show: show }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_show
-      @show = Show.find(params[:id])
+    def find_show
+      Show.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -61,8 +61,8 @@ class ShowsController < ApplicationController
       params.require(:show).permit(:name, :description, :network_id)
     end
 
-    def set_network
-      @network = Network.find(params[:network_id])
+    def find_network
+      Network.find(params[:network_id])
     end
 
 end

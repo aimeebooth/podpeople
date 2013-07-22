@@ -31,6 +31,7 @@ class NetworksController < ApplicationController
 
   def update
     network = find_network
+    
     if network.update_attributes(network_params)
       redirect_to network_path(network), notice: "Network successfully updated"
     else

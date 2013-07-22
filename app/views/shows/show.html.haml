@@ -1,20 +1,15 @@
-%h2="Showing #{@show.name}"
+%h2 #{show.name} Podcast
 
-%p#notice= notice
+%h3 Description
+%p= show.description
+    
+%h3 Hosts
+%p= link_to 'Add Host', new_show_host_path(show)
+%ul
+  - show.hosts.each do |host|
+    %li= link_to host.name, [host.show, host]
 
-%table
-  %tr
-    %th Network
-    %th Name
-    %th Description
-    %th 
-    %th
+%p= link_to 'Edit', edit_network_show_path(show.network, show)
+%p= link_to 'Delete', network_show_path(show.network, show), method: :delete, confirm: "Are you sure you want to ba-lete this?"
 
-  %tr
-    %td="#{@network.name}"
-    %td="#{@show.name}"
-    %td="#{@show.description}"
-    %td= link_to 'Edit', edit_network_show_path(@network, @show)
-    %td= link_to 'Delete', network_show_path(@network, @show), method: :delete, confirm: "Are you sure you want to ba-lete this?"
-
-= link_to 'Back', network_shows_path(@network)
+%p= link_to "Back to #{show.network.name}", network_path(show.network)

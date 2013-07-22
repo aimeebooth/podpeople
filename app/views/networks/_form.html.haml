@@ -1,8 +1,11 @@
 = form_for network do |f|
-  %p.errors
-    - network.errors.full_messages.each do |message|
-      %p.error= message
-
+  - if network.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(network.errors.count, "error")} prohibited this show from being saved:"
+      %ul
+        - network.errors.full_messages.each do |msg|
+          %li= msg
+          
   %p
     = f.label :name
     = f.text_field :name

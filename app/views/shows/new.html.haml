@@ -1,5 +1,5 @@
-%h1= "New show for #{@network.name}"
+%h1 New show for #{network.name}
 
-= render 'form'
+= render 'form', network: network, show: show
 
-= link_to 'Cancel', edit_network_path(@network)
+= link_to 'Cancel', edit_network_path(network)

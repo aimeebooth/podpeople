@@ -1,18 +1,18 @@
-%h2="#{network.name}"
+%h2 #{network.name} Network
+%p= link_to "Network shows", network_shows_path(network)
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th
-    %th
-    %th
-  %tr
-    %td= network.name
-    %td= network.description
-    %td= link_to 'View Shows', network_shows_path(network)
-    %td= link_to 'Edit', edit_network_path(network)
-    %td= link_to 'Delete', network_path(network), method: :delete, confirm: "Are you sure you want to ba-lete this? Srsly, it will delete all of the things in this network."
+- if network.shows.any?
+  - network.shows.each do |show|
+    %table
+      %tr
+        %th Name
+        %th Description
+        %th Host(s)
+      %tr
+        %td= link_to show.name, [network, show]
+        %td= show.description
+        %td= show.hosts.map(&:name).to_sentence
 
 
-%p= link_to 'Back', networks_path
+%p= link_to 'Add Show', new_network_show_path(network)
+%p= link_to 'Back to Networks', networks_path

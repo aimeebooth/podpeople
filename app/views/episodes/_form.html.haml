@@ -1,14 +1,14 @@
-= form_for @show, url: network_shows_path(@network, @show), method: :post do |f|
-  - if @show.errors.any?
+= form_for [show, episode] do |f|
+  - if episode.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@show.errors.count, "error")} prohibited this show from being saved:"
+      %h2= "#{pluralize(episode.errors.count, "error")} prohibited this show from being saved:"
       %ul
-        - @show.errors.full_messages.each do |msg|
+        - episode.errors.full_messages.each do |msg|
           %li= msg
           
   %p         
-    = f.label :name
-    = f.text_field :name
+    = f.label :title
+    = f.text_field :title
 
   %p
     = f.label :description

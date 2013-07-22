@@ -45,7 +45,7 @@ class HostsController < ApplicationController
 
     if host.destroy
       flash[:notice] = 'Host was successfully destroyed.'
-      redirect_to show_hosts_url(show)
+      redirect_to show 
     else
       render :show, locals: { show: show, host: host }
     end

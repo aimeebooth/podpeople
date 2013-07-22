@@ -5,6 +5,7 @@ Podpeople::Application.routes.draw do
 
   resources :shows do
     resources :hosts
+    resources :episodes
   end
 
   root to: "networks#index"

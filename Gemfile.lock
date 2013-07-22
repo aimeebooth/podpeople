@@ -27,6 +27,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.10)
+    bugsnag (1.4.0)
+      httparty (>= 0.6, < 1.0)
+      multi_json (~> 1.0)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -60,6 +63,9 @@ GEM
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
     hike (1.2.3)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.6.4)
     jbuilder (1.4.2)
       activesupport (>= 3.0.0)
@@ -76,6 +82,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
+    multi_xml (0.5.4)
     pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -167,6 +174,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bugsnag
   coffee-rails (~> 4.0.0)
   dalli
   fuubar

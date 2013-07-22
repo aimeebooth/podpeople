@@ -15,6 +15,8 @@ gem 'haml-rails'
 gem 'memcachier'
 gem 'dalli'
 
+gem "bugsnag"
+
 # see https://devcenter.heroku.com/articles/rails-integration-gems
 # required for Rails 4 logs to be visible on Heroku
 gem 'rails_12factor'

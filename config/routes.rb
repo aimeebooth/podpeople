@@ -1,15 +1,14 @@
 Podpeople::Application.routes.draw do
-
-  resources :shows do
-    resources :hosts
-    resources :episodes
-  end
-
-  resources :episodes do
-    resources :guests
-    resources :topics
-    resources :tapings
-  end
+	resources :networks do
+	  resources :shows do
+	    resources :hosts
+	    resources :episodes do
+		    resources :guests
+		    resources :topics
+		    resources :tapings
+		  end
+	  end
+	end
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

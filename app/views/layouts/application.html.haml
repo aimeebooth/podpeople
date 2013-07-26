@@ -9,7 +9,8 @@
     %header
       %h1= link_to "Podpeople", root_path
 
-    .flashes
-      = flash[:notice]
-      = flash[:warning]
+  .flashes
+    = flash[:notice]
+    = flash[:warning]
+    = render partial: '/shared/auth'
     = yield

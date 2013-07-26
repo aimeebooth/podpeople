@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630013335) do
+ActiveRecord::Schema.define(version: 20130726205245) do
 
   create_table "episodes", force: true do |t|
     t.text     "title"
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 20130630013335) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "episode_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.text     "name"
+    t.text     "uid"
+    t.text     "provider"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

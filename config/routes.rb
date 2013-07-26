@@ -1,7 +1,4 @@
 Podpeople::Application.routes.draw do
-  resources :networks do
-    resources :shows
-  end
 
   resources :shows do
     resources :hosts
@@ -14,5 +11,10 @@ Podpeople::Application.routes.draw do
     resources :tapings
   end
 
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
   root to: "networks#index"
+
 end

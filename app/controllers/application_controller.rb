@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
 		unless session[:user_id]
-			redirect_to login_path
-			flash[:warning] = "You have to sign in, Silly Pants."
+			redirect_to login_url
 		end
   end
 
